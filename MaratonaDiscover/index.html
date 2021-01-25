@@ -24,7 +24,7 @@
 
         <div class="card">
           <h3>
-            <span>Entradas </span>
+            <span> Entradas </span>
             <img src="../assets/income.svg" alt="image de entradas" />
           </h3>
           <p>R$ 5.000,00</p>
@@ -32,7 +32,7 @@
 
         <div class="card">
           <h3>
-            <span> Entradas </span>
+            <span> Saídas </span>
             <img src="../assets/expense.svg" alt="image de saidas" />
           </h3>
           <p>R$ 2.000,00</p>
@@ -50,7 +50,7 @@
       <section id="transaction">
         <h2 class="sr-only">Transações</h2>
 
-        <a href="#" class="button new">+ Nova Transação</a>
+        <a href="#" onclick="Modal.open()" class="button new">+ Nova Transação</a>
 
         <table id="data-table">
           <thead>
@@ -92,7 +92,7 @@
       </section>
     </main>
 
-    <div class="modal-overlay active">
+    <div class="modal-overlay ">
       <div class="modal">
         <div id="form">
           <h2>Nova Transação</h2>
@@ -112,13 +112,12 @@
               <input
                 type="number"
                 step="0.01"
-                id="description"
-                name="description"
+                id="amount"
+                name="amount"
                 placeholder="0,00"
               />
-              <small class="help"
-                >Use o sinal - (negativo) para despesas e , (vírgula) para casas
-                decimais
+              <small class="help">
+                Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais
               </small>
             </div>
 
@@ -128,7 +127,7 @@
             </div>
 
             <div class="input-group actions">
-              <a href="#" class="button cancel">Cancelar</a>
+              <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
               <button>Salvar</button>
             </div>
           </form>
@@ -136,6 +135,25 @@
       </div>
     </div>
 
-    <footer>dev.finance$</footer>
+    <footer>2021 - dev.finance$</footer>
+
+    <script>
+
+        Modal = {
+          open() {
+              // abir modal
+              // adicionar a class active ao modal
+              document.querySelector('.modal-overlay')
+              .classList.add('active')
+          },
+          close() {
+              document.querySelector('.modal-overlay')
+              .classList.remove('active')
+              // fechar o modal
+              // remover a class active do modal
+          }
+       }
+    </script>
+
   </body>
 </html>

@@ -12,7 +12,7 @@
 }
 
 html {
-  font-size: 93.75%; /* 15px */
+  font-size: 93.75%; /* 15px */ 
 }
 
 body {
@@ -45,6 +45,7 @@ a {
 
 a:hover {
   color: var(--light-green);
+  transition: 0.5s;
 }
 
 button {
@@ -63,6 +64,7 @@ button {
 
 button:hover {
   background: var(--light-green);
+  transition: 0.5s;
 }
 
 .button.new {
@@ -73,7 +75,7 @@ button:hover {
 .button.cancel {
   color: var(--red);
   border: 2px var(--red) solid;
-  border-radius: 0.25;
+  border-radius: 0.25rem;
 
   height: 50px;
 
@@ -91,13 +93,13 @@ button:hover {
 h2 {
   margin-top: 3.2rem;
   margin-bottom: 0.8rem;
-  color: (var(--dark-blue));
+  color: var(--dark-blue);
   font-weight: normal;
 }
 
 header {
   background-color: #2d4a22;
-  padding: 2rem 0 10rem;
+  padding: 2rem 0 12rem;
   text-align: center;
 }
 
@@ -120,7 +122,7 @@ header {
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
-  color: (var(--dark-blue));
+  color: var(--dark-blue);
 }
 
 .card h3 {
@@ -275,3 +277,4 @@ footer {
     gap: 2rem;
   }
 }
+
