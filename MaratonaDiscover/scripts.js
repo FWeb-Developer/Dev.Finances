@@ -15,10 +15,13 @@ const Storage = {
   get() {
     return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
   },
- 
+
   set(transactions) {
-    localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions));
-  }
+    localStorage.setItem(
+      "dev.finances:transactions",
+      JSON.stringify(transactions)
+    );
+  },
 };
 
 const Transaction = {
@@ -84,7 +87,7 @@ const DOM = {
       <td class='${CSSclass}'>${amount}</td>
       <td class='date'>${transaction.date}</td>
       <td>
-        <img onclick="Transaction.remove(${index})" src='../assets/minus.svg' alt='Remover transação' />
+        <img id="transactionRemove" onclick="Transaction.remove(${index})" src='../assets/minus.svg' alt='Remover transação' />
       </td>
     `;
 
@@ -110,9 +113,9 @@ const DOM = {
 
 const Utils = {
   formatAmount(value) {
-    value = Number(value) * 100;
+    value = value * 100;
 
-    return value;
+    return Math.round(value);
   },
 
   formatDate(date) {
@@ -153,13 +156,9 @@ const Form = {
   validateFields() {
     const { description, amount, date } = Form.getValues();
 
-    if (
-      description.trim() === "" ||
-      amount.trim() === "" ||
-      date.trim() === ""
-    ) {
-      throw new Error("Por favor, preencha todos os campos");
-    }
+    if (description.trim() === "" || amount.trim() === "" || date.trim() === "") {
+      throw new Error('Por favor, preencha todos os campos!', '', 'error')
+    } else(swal('Transação concluída','', 'success'))
   },
 
   formatValues() {
@@ -199,11 +198,11 @@ const Form = {
 
 const App = {
   init() {
-    Transaction.all.forEach(DOM.addTransaction)
+    Transaction.all.forEach(DOM.addTransaction);
 
     DOM.updateBalance();
 
-    Storage.set(Transaction.all)
+    Storage.set(Transaction.all);
   },
 
   reload() {
