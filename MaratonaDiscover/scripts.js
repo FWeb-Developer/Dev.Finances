@@ -1,3 +1,11 @@
+const DarkMode = {
+  darkmode() {
+    const html = document.querySelector('html')
+    const button = document.querySelector('#darkMode-button')
+    html.classList.toggle('dark-mode')
+    }
+}
+
 const Modal = {
   open() {
     // abrir o modal

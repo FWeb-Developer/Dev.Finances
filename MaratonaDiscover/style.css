@@ -3,6 +3,31 @@
   --green: #49aa26;
   --light-green: #3dd705;
   --red: #e92929;
+  --green-logo: #2D4a22;
+  --background-card: #fff;
+  --background-body: #f0f2f5;
+  --color-newButton: #49aa26; 
+  --data-table-color: #969cb3;
+  --data-table: #fff;
+  --td-description: #fff;
+  --modal-overlay: #f0f2f5;
+  --modal-span: #fff
+}
+
+.dark-mode:root {
+  --dark-blue: #fff;
+  --green: #19370e;
+  --light-green: #3dd705;
+  --red: #e92929;
+  --green-logo: #000;
+  --background-card: rgb(19, 19, 19);
+  --background-body: rgb(16, 15, 15);
+  --color-newButton: #fff;
+  --data-table-color: #fff;
+  --data-table: rgb(0, 0, 0);
+  --td-description: rgb(0, 0, 0);
+  --modal-overlay:  rgb(9, 9, 9);
+  --modal-span: #fff
 }
 
 * {
@@ -16,7 +41,7 @@ html {
 }
 
 body {
-  background-color: #f0f2f5;
+  background-color: var(--background-body) ;
   font-family: "Poppins", sans-serif;
 }
 
@@ -64,14 +89,30 @@ button {
   cursor: pointer;
 }
 
+button#darkMode-button {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  background: transparent;
+  opacity: 0.6;
+  outline: 0;
+}
+
+button#darkMode-button:hover {
+  opacity: 1;
+}
+
 button:hover {
-  background: var(--light-green);
+  background-color: var(--light-green);
   transition: 0.5s;
 }
 
 .button.new {
   display: inline-block;
   margin-bottom: 0.8rem;
+  color:var(--color-newButton);
 }
 
 .button.cancel {
@@ -97,8 +138,12 @@ h2 {
   font-weight: normal;
 }
 
+#NewTransaction {
+  color: var(--dark-blue);
+}
+
 header {
-  background-color: #2d4a22;
+  background-color: var(--green-logo);
   padding: 2rem 0 12rem;
   text-align: center;
 }
@@ -118,7 +163,7 @@ header {
 }
 
 .card {
-  background-color: white;
+  background-color: var(--background-card);
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
   margin-bottom: 2rem;
@@ -158,7 +203,7 @@ header {
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
-  color: #969cb3;
+  color: var(--data-table-color);
 }
 
 table thead tr th:first-child,
@@ -172,7 +217,7 @@ table tbody tr td:last-child {
 }
 
 table thead th {
-  background: white;
+  background: var(--data-table);
   font-weight: normal;
   padding: 1rem 3rem;
   text-align: left;
@@ -186,16 +231,17 @@ table tbody tr:hover {
 }
 
 table tbody td {
-  background: white;
+  background-color: var(--td-description);
   padding: 1rem 2rem;
 }
 
 td.description {
-  color: var(--dark-blue);
+  background-color: var(--td-description);
 }
 
 td.income {
   color: #12a454;
+  background-color: var(--td-description);
 }
 
 td.expense {
@@ -224,7 +270,7 @@ td.expense {
 }
 
 .modal {
-  background: #f0f2f5;
+  background: var(--modal-overlay);
   padding: 2.4rem;
 }
 
@@ -251,6 +297,7 @@ input {
 
 .input-group .help{
   opacity: 0.4;
+  color: var(--modal-span);
 }
 
 .input-group.actions {
